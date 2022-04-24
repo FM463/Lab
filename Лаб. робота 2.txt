@@ -1,0 +1,42 @@
+Лабораторна робота 2
+
+Завдання 1.
+SELECT id_book, cod, novinka, title, price, page FROM book;
+Завдання 2.
+SELECT * FROM book;
+Завдання 3.
+SELECT cod, title, novinka, page, price, id_book FROM book;
+Завдання 4.
+SELECT * FROM book LIMIT 10;
+Завдання 5.
+SELECT id_book, cod, novinka, title, price, vidavnictvo, page, format, datee, tiraj, tema, category FROM book LIMIT 10;
+Завдання 6.
+SELECT DISTINCT cod FROM book;
+Завдання 7.
+SELECT title, novinka FROM book;
+Завдання 8.
+SELECT title, price FROM book WHERE price BETWEEN '20' AND '30';
+Завдання 9.
+SELECT title, price FROM book WHERE price AND price <20 OR price >30;
+Завдання 10.
+SELECT title, page, price FROM book WHERE page BETWEEN '300' AND '400' AND price AND price <20 OR price >30;
+Завдання 11.
+SELECT title, datee FROM book WHERE datee (BETWEEN #2000-01-31# AND #2000-02-29#) OR (BETWEEN #2000-12-01# AND #2000-12-31#);
+Завдання 12.
+SELECT title, cod FROM book WHERE cod IN ('5110', '5141', '4985', '4241');
+Завдання 13.
+SELECT title, datee FROM book WHERE datee (BETWEEN #1999-01-01# AND #1999-12-31#) OR (BETWEEN #2001-01-01# AND #2001-12-31#) OR (BETWEEN #2003-01-01# AND #2003-12-31#) OR (BETWEEN #2005-01-01# AND #2005-12-31#);
+Завдання 14.
+SELECT title FROM book WHERE title LIKE 'А%' OR title LIKE 'Б%' OR title LIKE 'В%' OR title LIKE 'Г%' OR title LIKE 'Д%' OR title LIKE 'Е%' OR title LIKE 'Є%' OR title LIKE 'Ж%' OR title LIKE 'З%' OR title LIKE 'И%' OR title LIKE 'І%' OR title LIKE 'Й%' OR title LIKE 'К%';
+Завдання 15.
+SELECT title, datee, price FROM book WHERE title LIKE 'А%' OR title LIKE 'П%' OR title LIKE 'П%' AND datee BETWEEN #2000-01-31# AND #2000-12-31# AND price BETWEEN '01' AND '20';
+Завдання 16.
+SELECT title, datee, price FROM book WHERE title LIKE 'А%Е' OR title LIKE 'П%Е' OR title LIKE 'П%Е' AND datee BETWEEN #2000-01-31# AND #2000-06-31#;
+Завдання 17.
+SELECT title, datee, price FROM book WHERE title LIKE '%Microsoft%' AND title NOT LIKE '%Windows%';
+Завдання 18.
+SELECT title FROM book WHERE title LIKE '%0%' OR title LIKE '%1%' OR title LIKE '%2%' OR title LIKE '%3%' OR title LIKE '%4%' OR title LIKE '%5%' OR title LIKE '%6%' OR title LIKE '%7%' OR title LIKE '%8%' OR title LIKE '%9%';
+Завдання 19.
+SELECT title FROM book WHERE title LIKE '*#*#*#*';
+Завдання 20.
+SELECT title FROM book WHERE title LIKE '*#*#*#*#*#*';
