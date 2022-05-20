@@ -1,0 +1,44 @@
+Лабораторна робота 3
+
+Завдання 1
+SELECT title, price From book Where price=null OR price = 0;
+Завдання 2
+SELECT title, price, tiraj From book Where price>0 AND tiraj = null;
+Завдання 3
+SELECT title,datee From book Where datee is null;
+Завдання 4
+SELECT title,datee From book WHERE (2022-YEAR(datee)<=1);
+Завдання 5
+SELECT title, novinka, price From book ORDER BY price;
+Завдання 6
+SELECT title, page FROM book WHERE page BETWEEN '300' AND '400' ORDER BY title;
+Завдання 7
+SELECT title, price, datee FROM book WHERE price BETWEEN '20' AND '40' ORDER BY datee DESC;
+Завдання 8
+SELECT * FROM book ORDER BY title ASC, price DESC;
+Завдання 9
+SELECT title, price FROM book WHERE price BETWEEN 0 AND 10;
+Завдання 10
+SELECT UPPER(LEFT( title, 20)) FROM book;
+Завдання 11
+SELECT LEFT(title, 10) AND LEN(title, 10) FROM book;
+Завдання 12
+SELECT title, EXTRACT(DAY FROM datee) as day, EXTRACT(MONTH FROM datee) as month, EXTRACT(YEAR FROM datee) as year FROM book;
+Завдання 13
+SELECT title, date_format(datee, '%d/%m/%Y') FROM book;
+Завдання 14
+SELECT cod, price, price*30.41, price*0.95, price*58.89 FROM book;
+Завдання 15
+SELECT ROUND(price*30.41, 0) FROM book;
+Завдання 16
+INSERT INTO book (id_book, cod, novinka, title, price, vidavnictvo, page, format, datee, tiraj, tema, category) VALUES (264, 1312, 'No', 'Чистый код. Создание, анализ и рефакторинг', 14.06, 'Отдельное издание', 464, '70x100/16', 2010-03-12, 5000, 'Создание анализ и рефакторинг;Чистый код. Создание, анализ и рефакторинг.', 'Підручники');
+Завдання 17
+INSERT INTO book (id_book, cod, novinka, title, price, vidavnictvo, page, format, datee, tiraj, tema, category) VALUES (287, 1415, 'No', 'Совершенный код', ' ', 'Русская редакция', 896, ' ', ' ', 5000, 'Архитектура, стандарты кодирования, тестирование, интеграция и суть разработки ПО', 'Підручники');
+Завдання 18
+DELETE FROM book WHERE datee<1990;
+Завдання 19
+UPDATE book SET datee = '2008-04-15' WHERE id_book = 50;
+UPDATE book SET datee = '2010-09-25' WHERE id_book = 222;
+UPDATE book SET datee = '1993-10-06' WHERE id_book = 287;
+Завдання 20
+UPDATE book SET novinka='novinka' WHERE datee>'2005-01-31';
