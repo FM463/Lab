@@ -1,0 +1,42 @@
+Лабораторна робота 4
+
+Завдання 1
+SELECT COUNT(*), price AS price, AVG(price), MIN(price), MAX(price) FROM book;
+Завдання 2
+SELECT COUNT(DISTINCT price) FROM book;
+Завдання 3
+SELECT DISTINCT novinka FROM book;
+Завдання 4
+SELECT DISTINCT datee, title FROM book ORDER BY datee;
+Завдання 5
+SELECT DISTINCT datee, title, price FROM book WHERE price<10 OR price>20 ORDER BY datee;
+Завдання 6
+SELECT DISTINCT datee, title FROM book ORDER BY datee DESC;
+Завдання 7
+SELECT COUNT(DISTINCT (cod)) FROM book;
+Завдання 8
+SELECT COUNT(LEFT (title, 1)) FROM book WHERE title LIKE 'А%';
+Завдання 9
+SELECT COUNT(LEFT (title, 1)) FROM book WHERE title LIKE 'А%' AND 'a%' NOT LIKE '[A..Z]' '[a..z]' '[0..9]';
+Завдання 10
+SELECT COUNT(datee), title FROM book WHERE title LIKE 'А%' AND 'a%' NOT LIKE '[A..Z]' '[a..z]' '[0..9]' BETWEEN '01/01/2000' AND '31/12/2000';
+Завдання 11
+SELECT COUNT(datee), title FROM book WHERE title LIKE 'А%' AND 'a%' NOT LIKE '[A..Z]' '[a..z]' '[0..9]' BETWEEN '01/01/2000' AND '31/12/2000' ORDER BY datee DESC;
+Завдання 12
+SELECT DISTINCT MONTH(datee) as month , COUNT(title) FROM book GROUP BY MONTH(datee);
+Завдання 13
+SELECT DISTINCT(LEFT (title, 1)) title, EXTRACT(MONTH FROM datee) as month FROM book WHERE datee>'00/00/0000';
+Завдання 14
+SELECT DISTINCT(LEFT (title, 1)) title, EXTRACT(MONTH FROM datee) as month FROM book WHERE datee>'00/00/0000' ORDER BY datee DESC, datee ASC;
+Завдання 15
+SELECT DISTINCT novinka, SUM(price) AS total, price*30.41 AS UAH, price*0.95 AS euro, price*58.89 AS rub FROM book;
+Завдання 16
+SELECT DISTINCT novinka, ROUND(SUM(price), 0) AS total, ROUND(price*30.41, 0) AS UAH, ROUND(price*0.95, 0) AS euro, ROUND(price*58.89, 0) AS rub FROM book;
+Завдання 17
+SELECT COUNT(vidavnictvo) vidavnictvo FROM book;
+Завдання 18
+SELECT COUNT(vidavnictvo) vidavnictvo, COUNT(tema) tema FROM book ORDER BY vidavnictvo DESC, vidavnictvo ASC;
+Завдання 19
+SELECT COUNT(category) category, COUNT(vidavnictvo) vidavnictvo, COUNT(tema) tema FROM book ORDER BY vidavnictvo DESC, vidavnictvo ASC, tema DESC, tema ASC, category DESC, category ASC;
+Завдання 20
+SELECT vidavnictvo, ROUND(price, 0) FROM book WHERE price>0.1;
