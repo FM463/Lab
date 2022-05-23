@@ -1,0 +1,43 @@
+Лабораторна робота 6
+
+Завдання 1
+SELECT title, price, vidavnictvo FROM kniga;
+Завдання 2
+SELECT book.title, kniga.category FROM book INNER JOIN kniga ON book.category = kniga.category;
+Завдання 3
+SELECT title, price, vidavnictvo, format FROM kniga;
+Завдання 4
+SELECT tema, category, title, vidavnictvo FROM kniga ORDER BY tema DESC, tema ASC, category DESC, category ASC;
+Завдання 5
+SELECT vidavnictvo, datee FROM kniga Where vidavnictvo='Видавнича група BHV' AND datee>'2000-12-31';
+Завдання 6
+SELECT page, category FROM kniga GROUP BY category ORDER BY page DESC;
+Завдання 7
+SELECT AVG(tema='Використання ПК в цілому'), AVG(category='Linux') FROM kniga;
+Завдання 8
+SELECT * FROM kniga;
+Завдання 9
+SELECT * FROM book INNER JOIN kniga ON book.id_book = kniga.id_kniga;
+Завдання 10
+SELECT * FROM book LEFT JOIN kniga ON book.id_book = kniga.id_kniga;
+SELECT * FROM book RIGHT JOIN kniga ON book.id_book = kniga.id_kniga;
+Завдання 11
+SELECT a.title, b.page FROM book a, kniga b WHERE a.page = b.page;
+Завдання 12
+SELECT a.title, b.price FROM book a, kniga b WHERE a.price = b.price;
+Завдання 13
+SELECT category FROM kniga Where category='C&C++';
+Завдання 14
+SELECT vidavnictvo, datee FROM kniga Where vidavnictvo='Видавнича група BHV' AND datee>'2000-12-31';
+Завдання 15
+SELECT vidavnictvo, page FROM kniga Where page>400;
+Завдання 16
+SELECT category FROM kniga GROUP BY category ORDER BY category>3;
+Завдання 17
+SELECT vidavnictvo FROM kniga WHERE EXISTS (SELECT vidavnictvo FROM kniga WHERE vidavnictvo='Видавнича група BHV');
+Завдання 18
+SELECT vidavnictvo FROM kniga WHERE NOT EXISTS (SELECT vidavnictvo FROM kniga WHERE vidavnictvo='Видавнича група BHV');
+Завдання 19
+SELECT tema, category FROM book UNION SELECT tema, category FROM kniga ORDER BY tema ASC, category ASC;
+Завдання 20
+SELECT tema, category FROM book UNION SELECT tema, category FROM kniga GROUP BY tema, category ORDER BY tema DESC;
