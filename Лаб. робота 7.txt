@@ -1,0 +1,32 @@
+Лабораторна робота 7
+
+Завдання 1
+SELECT title, price, vidavnictvo, format FROM kniga;
+Завдання 2
+SELECT tema, category, title, vidavnictvo FROM kniga GROUP BY tema, category ORDER BY tema DESC, tema ASC, category DESC, category ASC;
+Завдання 3
+SELECT vidavnictvo, datee FROM kniga Where vidavnictvo='Видавнича група BHV' AND datee>'2000-12-31';
+Завдання 4
+SELECT page, category FROM kniga GROUP BY category ORDER BY page DESC, page ASC;
+Завдання 5
+SELECT AVG(tema='Використання ПК в цілому') AS tema, AVG(category='Linux') AS category FROM kniga;
+Завдання 6
+SELECT * FROM kniga;
+Завдання 7
+SELECT a.title, b.page FROM book a, kniga b WHERE a.page = b.page;
+Завдання 8
+SELECT a.title, b.price FROM book a, kniga b WHERE a.price = b.price;
+Завдання 9
+SELECT title, category FROM kniga Where category='C&C++';
+Завдання 10
+SELECT vidavnictvo FROM kniga Where page>400;
+Завдання 11
+SELECT category FROM kniga GROUP BY category ORDER BY category>3;
+Завдання 12
+SELECT vidavnictvo FROM kniga WHERE EXISTS (SELECT vidavnictvo FROM kniga WHERE vidavnictvo='Видавнича група BHV');
+Завдання 13
+SELECT vidavnictvo FROM kniga WHERE NOT EXISTS (SELECT vidavnictvo FROM kniga WHERE vidavnictvo='Видавнича група BHV');
+Завдання 14
+SELECT tema, category FROM book ORDER BY tema ASC, category ASC;
+Завдання 15
+SELECT tema, category FROM book GROUP BY category ORDER BY tema DESC;
