@@ -1,0 +1,54 @@
+Лабораторна робота 8
+
+Завдання 1
+CREATE TRIGGER abc BEFORE UPDATE ON book FOR EACH ROW INSERT INTO kniga SET cod=old.cod, novinka=old.novinka, title=old.title, price=old.price, tema=old.tema WHERE tema BETWEEN 5 AND 10;
+Завдання 2
+CREATE TRIGGER abcd BEFORE UPDATE ON book FOR EACH ROW INSERT INTO kniga SET cod=old.cod, novinka=old.novinka, title=old.title, price=old.price, tema=old.tema WHERE year(`book`.`datee`)=yearr);
+Завдання 3
+CREATE TRIGGER book AFTER UPDATE ON kniga FOR EACH ROW UPDATE trigger_k SET page = (new.page<100 * price<10) AND (new.page<200 * price<20) AND (new.page<300 * price<30) WHERE price = new.price;
+Завдання 4
+CREATE TRIGGER books AFTER UPDATE ON kniga FOR EACH ROW UPDATE trigger_vidavnictvo SET vidavnictvo='BHV'<5000 AND vidavnictvo='Diasoft'=10000 WHERE vidavnictvo = new.vidavnictvo;
+Завдання 5
+SELECT * FROM book WHERE cod = 5110;
+Завдання 6
+CREATE TRIGGER book1 ON kniga FOR UPDATE AS
+     SET NOCOUNT ON
+     PRINT 'Попытка изменения данных в таблице book'
+     IF (COLUMS_UPDATED() & 1)!=0
+PRINT 'Изменение столбца cod'
+     IF (COLUMNS_UPDATED() & 2)!=0
+PRINT 'Изменение столбца novinka'
+     IF (COLUMNS_UPDATED() & 4)!=0
+PRINT 'Изменение столбца price'
+     IF UPDATE(tiraj) PRINT 'Изменение столбца tiraj'
+     IF ((CURRENT_USER = 'dbo') AND
+(COLUMNS_UPDATED() & 1)!=0)
+     BEGIN
+     PRINT 'Пользователь dbo не может изменять
+     id книги'
+     ROLLBACK TRANSACTION
+     END
+Завдання 7
+CREATE TRIGGER book1 ON kniga FOR UPDATE AS
+     SET NOCOUNT ON
+     PRINT 'Попытка изменения данных в таблице book'
+     IF (COLUMS_UPDATED() & 1)!=0
+PRINT 'Изменение столбца cod'
+     IF (COLUMNS_UPDATED() & 2)!=0
+PRINT 'Изменение столбца price'
+     IF UPDATE(tiraj) PRINT 'Изменение столбца tiraj'
+     IF ((CURRENT_USER = 'dbo') AND
+(COLUMNS_UPDATED(price) & 1)!=0)
+     BEGIN
+     PRINT 'Пользователь dbo не может изменять
+     цену книги'
+     ROLLBACK TRANSACTION
+     END
+Завдання 8
+CREATE TRIGGER book2 ON kniga FOR UPDATE AS SET vidavnictvo 'ДМК' AND vidavnictvo 'Еком' WHERE vidavnictvo 'ДМК'=null AND vidavnictvo 'Еком'=null;
+Завдання 9
+CREATE TRIGGER book3 ON kniga FOR UPDATE AS
+SET novinka <10
+WHERE novinka=new.novinka
+Завдання 10
+CREATE TRIGGER book3 ON kniga FOR UPDATE AS SET vidavnictvo=null format'60х88/16' WHERE vidavnictvo='BHV'

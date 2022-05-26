@@ -1,0 +1,17 @@
+Лабораторна робота 9
+
+Завдання 1
+CREATE FUNCTION scalar (yearr INT) RETURNS DOUBLE RETURN ( SELECT SUM(`kniga`.`price`) FROM `kniga` WHERE year(`kniga`.`datee`)=yearr );
+Завдання 2
+CREATE FUNCTION inline (yearr INT) RETURNS DOUBLE RETURN ( SELECT SUM(`kniga`.`title`) FROM `kniga` WHERE year(`kniga`.`datee`)=yearr );
+Завдання 3
+CREATE FUNCTION books(vidavnictvo VARCHAR) RETURNS TABLE RETURN (SELECT FIRST_NAME|| ';' ||LAST_NAME FROM kniga, row_number(vidavnictvo);
+Завдання 4
+a. DECLARE cur_1 CURSOR FOR SELECT max_salary FROM kniga;
+b. OPEN cur_1;
+c. DECLARE CONTINUE HANDLER FOR NOT FOUND SET b = 1;
+d. REPEAT FETCH cur_1 INTO a; UNTIL b = 1 END REPEAT;
+e. CLOSE cur_1; 
+CREATE PROCEDURE my_proc_cursors(INOUT return_val INT) BEGIN DECLARE a,b INT; DECLARE cur_1 CURSOR FOR SELECT max_salary FROM kniga; DECLARE CONTINUE HANDLER FOR NOT FOUND SET b = 1; OPEN cur_1; REPEAT FETCH cur_1 INTO a; UNTIL b = 1 END REPEAT; CLOSE cur_1; SET return_val = a; END;;
+Завдання 5
+DECLARE title VARCHAR(80), yearr date DECLARE cur_2 CURSOR PRINT 'Список книг' DECLARE cursor2 CURSOR FOR SELECT SUM(`book`.`title`) FROM `book` WHERE year(`book`.`datee`)=yearr );
